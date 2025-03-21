@@ -1,0 +1,165 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+h2 {
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Search Section */
+.search-section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+#search-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-input, #category-filter, #location-filter {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+#search-input {
+    width: 200px;
+}
+
+#category-filter, #location-filter {
+    width: 150px;
+}
+
+/* Job Listings */
+.job-listings {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.job-listing {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.job-listing h3 {
+    margin-top: 0;
+}
+
+.apply-btn {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.apply-btn:hover {
+    background-color: #007B9A;
+}
+
+/* Admin Page */
+.admin-form {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 4px;
+}
+
+.admin-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.admin-form input, .admin-form select, .admin-form textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.admin-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    font-size: 16px;
+}
+
+.admin-form button:hover {
+    background-color: #45a049;
+}
+
+#confirmation-message {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#error-message {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+

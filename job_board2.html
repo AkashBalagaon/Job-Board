@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Board</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Job Board</h1>
+        <nav>
+            <ul>
+                <li><a href="job_board2.html">Home</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Search & Filter -->
+    <section class="search-section">
+        <h2>Search Jobs</h2>
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Search for jobs...">
+            <select id="category-filter">
+                <option value="">Category</option>
+                <option value="tech">Tech</option>
+                <option value="marketing">Marketing</option>
+                <option value="design">Design</option>
+                <option value="testing">Testing</option>
+                <option value="devops">Devops Engineer</option>
+                <option value="backend">Backend Engineer</option>
+                <option value="fullstack">FullStack Developer</option>
+            </select>
+            <select id="location-filter">
+                <option value="">Location</option>
+                <option value="remote">Remote</option>
+                <option value="new-york">New York</option>
+                <option value="san-francisco">San Francisco</option>
+                <option value="bangalore">Bangalore</option>
+                <option value="pune">Pune</option>
+                <option value="mysore">Mysore</option>
+                <option value="mumbai">Mumbai</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+     <!-- Job Listings -->
+    <section class="job-listings" id="job-listings">
+        <h2>Available Jobs</h2>
+        <!-- Job Listings will go here -->
+        <div class="job-listing" data-category="tech" data-location="remote">
+            <h3>Software Developer</h3>
+            <p>Location: Remote</p>
+            <p>Category: Tech</p>
+            <button class="apply-btn">Apply</button>
+        </div>
+        <div class="job-listing" data-category="marketing" data-location="new-york">
+            <h3>Marketing Specialist</h3>
+            <p>Location: New York</p>
+            <p>Category: Marketing</p>
+            <button class="apply-btn">Apply</button>
+        </div>
+        <div class="job-listing" data-category="testing" data-location="bangalore">
+            <h3>Software Testing</h3>
+            <p>Location: Bangalore</p>
+            <p>Category: Testing</p>
+            <button class="apply-btn">Apply</button>
+        </div>
+        <div class="job-listing" data-category="tech" data-location="mysore">
+            <h3>FrontEnd Developer</h3>
+            <p>Location: Mysore</p>
+            <p>Category: Tech</p>
+            <button class="apply-btn">Apply</button>
+        </div>
+        <div class="job-listing" data-category="devops" data-location="pune">
+            <h3>Devops Engineer</h3>
+            <p>Location: Pune</p>
+            <p>Category: Devops Engineer</p>
+            <button class="apply-btn">Apply</button>
+        </div>
+        <div class="job-listing" data-category="tech" data-location="mumbai">
+            <h3>Software Engineer</h3>
+            <p>Location: Mumbai</p>
+            <p>Category: Tech</p>
+            <button class="apply-btn">Apply</button>
+        </div>
+        <div class="job-listing" data-category="testing" data-location="bangalore">
+            <h3>Automation Testing</h3>
+            <p>Location: Bangalore</p>
+            <p>Category: Testing</p>
+            <button class="apply-btn">Apply</button>
+        </div>
+        <div class="job-listing" data-category="backend" data-location="bangalore">
+            <h3>Backend Developer</h3>
+            <p>Location: Bangalore</p>
+            <p>Category: Backend Engineer</p>
+            <button class="apply-btn">Apply</button>
+        </div>
+        <div class="job-listing" data-category="fullstack" data-location="new-york">
+            <h3>FullStack Developer</h3>
+            <p>Location: New York</p>
+            <p>Category: FullStack Developer</p>
+            <button class="apply-btn">Apply</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Job Board</p>
+    </footer>
+
+    <script>
+        // JavaScript Code for Filtering Jobs
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const categoryFilter = document.getElementById('category-filter').value.toLowerCase();
+            const locationFilter = document.getElementById('location-filter').value.toLowerCase();
+            
+            const jobListings = document.querySelectorAll('.job-listing');
+
+            jobListings.forEach(function(job) {
+                const jobTitle = job.querySelector('h3').textContent.toLowerCase();
+                const jobCategory = job.getAttribute('data-category').toLowerCase();
+                const jobLocation = job.getAttribute('data-location').toLowerCase();
+
+                // Check if job matches search query, category, and location filters
+                const matchesSearch = jobTitle.includes(searchInput);
+                const matchesCategory = categoryFilter ? jobCategory.includes(categoryFilter) : true;
+                const matchesLocation = locationFilter ? jobLocation.includes(locationFilter) : true;
+
+                // Show or hide job listings based on the match
+                if (matchesSearch && matchesCategory && matchesLocation) {
+                    job.style.display = 'block';
+                } else {
+                    job.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

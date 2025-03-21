@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Add Job</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Job Board Admin</h1>
+        <nav>
+            <ul>
+                <li><a href="job_board2.html">Home</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Add Job Form -->
+    <section class="admin-form">
+        <h2>Add New Job</h2>
+        <form id="job-form" method="post">
+            <label for="job-title">Job Title</label>
+            <input type="text" id="job-title" name="job-title" required>
+
+            <label for="job-location">Location</label>
+            <input type="text" id="job-location" name="job-location" required>
+
+            <label for="job-category">Category</label>
+            <select id="job-category" name="job-category" required>
+                <option value="tech">Tech</option>
+                <option value="marketing">Marketing</option>
+                <option value="design">Design</option>
+            </select>
+
+            <label for="job-description">Job Description</label>
+            <textarea id="job-description" name="job-description" rows="5" required></textarea>
+
+            <button type="submit">Add Job</button>
+        </form>
+        
+        <div id="confirmation-message" style="display: none; color: green;">
+            Job added successfully!
+        </div>
+        <div id="error-message" style="display: none; color: red;">
+            Please fill out all fields correctly.
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Job Board</p>
+    </footer>
+
+    <script>
+        // JavaScript for handling form submission
+        document.getElementById('job-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting immediately
+            
+            // Get form values
+            const jobTitle = document.getElementById('job-title').value.trim();
+            const jobLocation = document.getElementById('job-location').value.trim();
+            const jobCategory = document.getElementById('job-category').value;
+            const jobDescription = document.getElementById('job-description').value.trim();
+            
+            // Check if all fields are filled
+            if (jobTitle && jobLocation && jobCategory && jobDescription) {
+                // Hide any previous error message
+                document.getElementById('error-message').style.display = 'none';
+
+                // Simulate adding the job (for now, just show a success message)
+                // In a real scenario, you'd send this data to a server or API
+                document.getElementById('confirmation-message').style.display = 'block';
+                
+                // Clear the form fields
+                document.getElementById('job-form').reset();
+            } else {
+                // Show an error message if validation fails
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('confirmation-message').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
